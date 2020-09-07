@@ -1,0 +1,8 @@
+.myfsid-register-image{
+    background-image: url('./../images/register.jpg');
+    height: 700px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-self: center;
+}

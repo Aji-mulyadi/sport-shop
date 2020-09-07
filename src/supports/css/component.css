@@ -1,0 +1,119 @@
+.sporteens-clickable-el{
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.sporteens-dropdown{
+    border:none;
+    outline: none;
+}
+
+.sporteens-clickable-el {
+    cursor: pointer;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+}
+
+.sporteens-active-state {
+    font-weight: bolder;
+    color: brown;
+}
+/* register page componen */
+
+.my-height {
+    height: 320px;
+}
+
+.my-radius {
+    border-radius: 20px;
+}
+
+.register-font-title {
+    font-size: 24px;
+    color: #707070;
+    font-family: Helvetica Neue;
+}
+
+.button-font {
+    font-size: 18px;
+    color: #707070;
+    font-family: Helvetica Neue;
+}
+/* end of register componen */
+/* Product list componen */
+
+.product-list-height {
+    height: 150px;
+    width: 100px
+}
+
+.product-list-title-font {
+    font-family: Helvetica Neue;
+    font-size: 10px;
+    color: #707070
+}
+
+.product-list-price-font {
+    font-family: Helvetica Neue;
+    font-size: 9px;
+    color: #A0A0A0
+}
+/* product details product */
+
+.product-details-height {
+    height: 442px;
+}
+
+.product-details-sub-height {
+    height: 83px;
+}
+
+.product-details-font-title {
+    font-size: 28px;
+    font-family: Helvetica Neue;
+    font-weight: bold;
+    color: #707070;
+}
+
+.product-details-font-small {
+    font-size: 20px;
+    font-family: Helvetica Neue;
+    color: #707070;
+}
+
+.my-height {
+    height: 50px
+}
+/* responsive */
+
+@media screen and (min-width:768px) {
+    .my-height {
+        height: 688px;
+    }
+}
+
+@media screen and (min-width:576px) {
+    .product-list-height {
+        height: 300px;
+        width: auto;
+    }
+    .product-list-title-font {
+        font-family: Helvetica Neue;
+        font-size: 20px;
+        color: #707070
+    }
+    .product-list-price-font {
+        font-family: Helvetica Neue;
+        font-size: 18px;
+        color: #A0A0A0
+    }
+}

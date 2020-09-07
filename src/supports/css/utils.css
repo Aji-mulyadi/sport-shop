@@ -1,0 +1,132 @@
+:root {
+    --main: #71c9ce;
+    --secondary : #f5d761;
+    --black : #333d4b;
+    --light : #dbe2ef;
+    --main-dark : #364f6b;
+    --light-dark : #f6f5f5;
+    --light-brown : #75757c;
+    --main-blue : #d1d1f6;
+    
+
+
+}
+
+
+.sporteens-main{
+    color: var(--main);
+}
+
+.sporteens-main-blue{
+    color: var(--main-blue);
+}
+
+.sporteens-secondary{
+    color: var(--secondary);
+}
+
+.sporteens-black{
+    color: var(--black);
+}
+
+.sporteens-light {
+    color: var(--light);
+}
+
+.sporteens-light-dark {
+    color: var(--light-dark);
+}
+
+
+
+.sporteens-bg-main{
+    background-color: var(--main);
+}
+
+
+.sporteens-bg-main-dark{
+    background-color: var(--main-dark);
+}
+.sporteens-bg-main-brown{
+    background-color: var(--main-brown);
+}
+
+.sporteens-bg-secondary{
+    background-color: var(--secondary);
+}
+
+.sporteens-bg-black{
+    background-color: var(--black);
+}
+
+.sporteens-bg-light {
+    background-color: var(--light-dark);
+} 
+
+.sporteens-bg-light-brown {
+    background-color: var(--light-brown);
+} 
+/* Fonts */
+
+.sporteens-font-8{
+    font-size: 8px;
+}
+
+.sporteens-font-10{
+    font-size: 10px;
+}
+
+.sporteens-font-12{
+    font-size: 12px;
+}
+.sporteens-font-14{
+    font-size: 14px;
+}
+
+.sporteens-font-16{
+    font-size: 16px;
+}
+
+.sporteens-font-20{
+    font-size: 20px;
+}
+
+.sporteens-shadow{
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
+} 
+.sporteens-link{
+    color: inherit;
+}
+.sporteens-link:hover{
+    text-decoration: none;
+    color: inherit;
+}
+product-list-title-font {
+    font-family: Helvetica Neue;
+    font-size: 20px;
+    color: #707070
+}
+
+.product-list-price-font {
+    font-family: Helvetica Neue;
+    font-size: 18px;
+    color: #A0A0A0
+}
+
+
+@media screen and (min-width:576px) {
+    .product-list-height {
+        height: 300px;
+        width: auto;
+    }
+    .product-list-title-font {
+        font-family: Helvetica Neue;
+        font-size: 20px;
+        color: #707070
+    }
+    .product-list-price-font {
+        font-family: Helvetica Neue;
+        font-size: 18px;
+        color: #A0A0A0
+    }
+}

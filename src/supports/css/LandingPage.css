@@ -1,0 +1,22 @@
+:root {
+    --main: #71c9ce;
+    --secondary : #ffde7d;
+    --black : #222831;
+    --light : #dbe2ef;
+    --main-dark : #364f6b;
+    --light-dark : #f6f5f5;
+}
+
+.sporteens-jumbotron{
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./../images/jumbotron1.jpg');
+    height: 600px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+} 
+
+
+.sporteens-bg-banner{
+    /* background-image: linear-gradient(to top, #71c9ce 0%, #71c9ce 100%, #364f6b 100%, #364f6b 100%); */
+    background-image: linear-gradient(to top, #364f6b 0%, #71c9ce 100%, #71c9ce 100%, #71c9ce 100%);
+} 
