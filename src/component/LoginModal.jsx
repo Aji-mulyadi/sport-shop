@@ -77,7 +77,7 @@ export class LoginModal extends Component {
                             null
                         }
 
-                        <input type="button" onClick={this.onSubmitBtn} className='btn btn-info mt-0' value='submit'/>
+                        <input type="button" onClick={this.onSubmitBtn} className='btn btn-info mt-1' value='submit'/>
 
                     </ModalBody>
                     <ModalFooter>

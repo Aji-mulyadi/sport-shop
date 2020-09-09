@@ -163,14 +163,13 @@ class manageProduct extends Component {
 
     return (
       <div className="container pt-5 ">
-        <h1>hello</h1>
         <input
           type="button"
           className="btn btn-primary mb-5 mx-auto"
           onClick={() => this.setState({ showForm: true })}
           value="add new data"
         />
-        <table className="table table-hover table-bordered mt-5 ">
+        <table className="table-bordered mt-2 ">
           <thead className="table-primary text-white text-center">
             <tr>
               <th scope="col">Id</th>

@@ -16,10 +16,12 @@ export class LandingPage extends Component {
     state = {
         data : null,
         
+        
     }
 
     componentDidMount(){
         this.getAllProducts()
+        this.getBestSellerProducts()
     }
 
     getAllProducts = () => {
@@ -30,6 +32,42 @@ export class LandingPage extends Component {
         })
         .catch((err) => {
             alert(err.message)
+        })
+    }
+
+    getBestSellerProducts = () => {
+        Axios.get(apiUrl + "transactions")
+        .then((res) => {
+            console.log(res.data)
+
+            // count total 
+            var sold = []
+            res.data.forEach((val) => {
+                val.detail.forEach((prod) => {
+                    var isAda = false
+                    var indexAda = null
+                    for(var i =0 ; i < sold.length ; i ++){
+                        if(sold[i].product_name === prod.product_name){
+                            isAda = true
+                            indexAda = i
+                        }
+                    }
+
+                    if(isAda){
+                        sold[indexAda].qty += prod.qty
+                    }else{
+                        sold.push(prod)
+                    }
+                })
+            })
+
+            sold.sort((a,b) => {
+                return b.qty - a.qty
+            })
+            console.log(sold)
+        })
+        .catch((err) => {
+            console.log(err)
         })
     }
 
@@ -62,7 +100,7 @@ export class LandingPage extends Component {
                 {/* Jumbotron Section */}
                 <div className='sporteens-jumbotron sporteens-bg-secondary p-5 '>
                 <div className="container h-100">
-                        <div className=''>
+                        <div className='mt-5'>
                             </div>
                                 <h1 className='sporteens-light'>Style Support Your Passion.</h1>
                                 <p className='sporteens-light'>Explore your style with us</p>

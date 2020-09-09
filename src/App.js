@@ -18,6 +18,7 @@ import PageNotFound from './component/PageNotFound'
 import Statistic from './pages/Statistic'
 import apiUrl from './supports/constants/apiUrl'
 import Axios from 'axios'
+import manageProduct from './pages/ManageProduct'
 
 
 
@@ -62,6 +63,8 @@ import Axios from 'axios'
         <Route path='/brands' component={Brands} />
           {this.state.userRole === 'admin' ? <Route path='/statistic' component={Statistic} /> : null}
           {this.state.userRole === 'admin' ? <Route path='/products' component={ListProducts} /> : null}
+          {this.state.userRole === 'admin' ? <Route path='/ManageProduct' component={manageProduct} /> : null}
+
         <Route path='/Cart' component={Cart} />
         <Route path='/register' component={Register} />
         <Route path='/checkout/:idTrans' component={Checkout} />
