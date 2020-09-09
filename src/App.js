@@ -14,13 +14,15 @@ import CreatePassword from './pages/CreatePassword'
 import DetailProduct from './pages/DetailProduct'
 import Checkout from './pages/Checkout'
 import TransactionHistory from './pages/TransactionHistory'
+//import Statistic from './pages/Statistic'
+// import ManageProduct from './pages/manageProduct'
 
 
 
   export class App extends Component{
     render() {
       return(
-        
+        // <manageProduct/>
         <BrowserRouter>
 
         <div>

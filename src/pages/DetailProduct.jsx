@@ -5,6 +5,7 @@ import LoadingPage from '../component/LoadingPage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import LoginModal from '../component/LoginModal';
+import { Link } from 'react-router-dom';
 
 
 class ViewProduct extends Component{
@@ -12,13 +13,15 @@ class ViewProduct extends Component{
         data : null,
         modalOpen : false,
         selectedPhoto : null,
-        isLogin : false
+        isLogin : false,
+        dataSimiliarProduct : null
     }
 
     componentDidMount(){
         window.scrollTo(0,0)
         this.getDataProductsById()
         this.getLoginStatus()
+        this.getSimiliarProduct()
     }
     getLoginStatus = () => {
         const id = localStorage.getItem('id')
@@ -77,6 +80,28 @@ class ViewProduct extends Component{
                 }
             })
         }
+    }
+    getSimiliarProduct = () => {
+        var id = this.props.location.pathname.split('/')[2]
+
+        Axios.get(apiUrl + 'products/' + id)
+        .then((res) => {
+            console.log(res)
+
+            var categoryproduct = res.data.category
+            
+            Axios.get(apiUrl + 'products?category=' + categoryproduct)
+            .then((res) => {
+                console.log(res.data)
+                this.setState({dataSimiliarProduct : res.data})
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        })
+        .catch((err) => {
+            console.log(err)
+        })
     }
     
 
@@ -151,6 +176,32 @@ class ViewProduct extends Component{
                         </div>
                     </div>
                 </div>
+                
+                <div className="container border-top my-5"> 
+                <h3 className='mt-3'>Similiar Products</h3>
+                    <div className="row mt-3 justify-content-center">
+                        {
+                            this.state.dataSimiliarProduct?
+                                this.state.dataSimiliarProduct.map((val, id) => {
+                                    return(
+                                        <div className="col-2 mx-2 my-2 py-3 border">
+                                            <Link to={'/detail-product/' + val.id}>
+                                                <div onClick={window.Loader} className="py-0">
+                                                    <img src={val.image1} alt="" className="w-100" />
+                                                </div>
+                                            </Link>
+                                            <div className="py-1">
+                                                <h6>{val.name}</h6>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            :
+                                'loading...'
+                        }
+                    </div>
+                </div>
+
             </div>
         )
     }

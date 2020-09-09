@@ -189,9 +189,9 @@ export class ListProducts extends Component {
                 <div>
                     <div className="sporteens-jumbotron-list-products">
                         <div className="container h-100">
-                            <div className="row align-items-center h-100">
+                            <div className="row align-items-center h-100 ">
                                 <div className="col-md-12 text-center text-md-left sporteens-light">
-                                    {/* <h1 className="sporteens-jumbotron-title-list-products">Get Your Product Here</h1> */}
+                                    <h1 className="sporteens-jumbotron-title-list-products text-center">Jump For Your Goal</h1>
                                 </div>
                             </div>
                         </div>

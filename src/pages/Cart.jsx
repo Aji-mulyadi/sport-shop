@@ -1,9 +1,4 @@
-import {
-  faMinus,
-  faPlus,
-  faShoppingCart,
-  faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+import {faMinus,faPlus,faShoppingCart,faTrash,} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { Component } from "react";
 import { UncontrolledTooltip } from "reactstrap";
@@ -77,7 +72,7 @@ class Cart extends Component {
                   {/* End of image Section */}
 
                   {/* Product qty section */}
-                  <div className="col-7  cart-bg-color pb-4 pt-2 ">
+                  <div className="col-7 cart-bg-color pb-4 pt-2 ">
                     <div className=" cart-title-font font-weight-bold">
                       {this.state.dataProduct[index].name}
                       <div className="text-danger">Rp.{this.state.dataProduct[index].price.toLocaleString('id-ID')}</div>

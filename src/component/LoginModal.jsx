@@ -76,13 +76,12 @@ export class LoginModal extends Component {
                             :
                             null
                         }
-                        <p className='sporteens-font-14'> <Link to='/register' className='sporteens-link'> <span className='sporteens-clickable-el sporteens-main-dark font-weight-bold'> Forget password ? </span> </Link></p>
 
                         <input type="button" onClick={this.onSubmitBtn} className='btn btn-info mt-0' value='submit'/>
 
                     </ModalBody>
                     <ModalFooter>
-                    {/* <p className='text-center sporteens-font-14'>Don't have account yet? <Link to='/register' className='sporteens-link'> <span className='sporteens-clickable-el sporteens-main-dark font-weight-bold'> Register here </span> </Link></p> */}
+                    <p className='text-center sporteens-font-14'>Don't have account yet? <Link to='/register' className='sporteens-link'> <span className='sporteens-clickable-el sporteens-main-dark font-weight-bold'> Register here </span> </Link></p>
 
                     </ModalFooter>
                 </Modal>

@@ -14,7 +14,8 @@ import { Link } from 'react-router-dom'
 
 export class LandingPage extends Component {
     state = {
-        data : null
+        data : null,
+        
     }
 
     componentDidMount(){
@@ -111,6 +112,8 @@ export class LandingPage extends Component {
                                     <p className='p-0 m-0 sporteens-main-dark'> Rp. 70000 </p>
                                 </div>
                             </div>
+
+                            
                             <div className="col-6 mt-3 mt-md-0 col-md-3 ">
                                 <div className='border bg-white p-3'>
                                     <img src={Image} width='100%'  alt="product"/>
