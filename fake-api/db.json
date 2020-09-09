@@ -2,93 +2,115 @@
   "users": [
     {
       "id": 1,
-      "phone": "0822274821",
-      "email": "",
-      "password": "123123"
+      "phone": "",
+      "email": "admin@admin.com",
+      "password": "admin",
+      "role": "admin"
     },
     {
       "phone": "0822268479346",
       "email": "",
       "password": "123123",
+      "role": "user",
       "id": 2
     },
     {
       "phone": "0823817584",
       "email": "",
       "password": "",
+      "role": "user",
       "id": 3
     },
     {
       "phone": "08287612423",
       "email": "",
       "password": "123123",
+      "role": "user",
       "id": 4
     },
     {
       "email": "fikri@fikri.com",
       "phone": "",
       "password": "234234",
+      "role": "user",
       "id": 5
     },
     {
       "phone": "082226847592",
       "email": "",
       "password": "123123",
+      "role": "user",
       "id": 6
     },
     {
       "email": "joko@joko.com",
       "phone": "",
       "password": "123123",
+      "role": "user",
       "id": 7
     },
     {
       "email": "joko@fikri.com",
       "phone": "",
       "password": "123123",
+      "role": "user",
       "id": 8
     },
     {
       "email": "fikri@fikri.id",
       "phone": "",
       "password": "123123",
+      "role": "user",
       "id": 9
     },
     {
       "phone": "08274538645",
       "email": "",
       "password": "123123",
+      "role": "user",
       "id": 10
     },
     {
       "phone": "06535669876",
       "email": "",
       "password": "123123",
+      "role": "user",
       "id": 11
     },
     {
       "phone": "0746852334",
       "email": "",
       "password": "123123",
+      "role": "user",
       "id": 12
     },
     {
       "phone": "09898989898",
       "email": "",
       "password": "123123",
+      "role": "user",
       "id": 13
     },
     {
       "phone": "081313222432",
       "email": "",
       "password": "123123",
+      "role": "user",
       "id": 14
     },
     {
       "phone": "0987941974",
       "email": "",
       "password": "1234",
+      "role": "user",
       "id": 15
+    },
+    {
+      "phone": "0123456726",
+      "email": "",
+      "password": "123",
+      "role": "user",
+      "id": 16
     }
   ],
   "products": [
@@ -100,6 +122,7 @@
       "price": 3550000,
       "discount": 15,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/us/productimages/V3_1_Main/227185.jpg",
       "image2": "https://www.prodirectsoccer.com/us/productimages/V3_1_Gallery_5/227185.jpg",
       "image3": "https://www.prodirectsoccer.com/us/productimages/V3_1_Gallery_2/227185.jpg"
@@ -112,6 +135,7 @@
       "price": 4350000,
       "discount": 0,
       "Stock": 25,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/ProductImages/Main/223585_Main_Thumb_0762387.jpg",
       "image2": "https://www.prodirectsoccer.com/ProductImages/Gallery_2/223585_Gallery_2_0762390.jpg",
       "image3": "https://www.prodirectsoccer.com/ProductImages/Gallery_1/223585_Gallery_1_0762388.jpg"
@@ -124,6 +148,7 @@
       "price": 4350000,
       "discount": 25,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/ProductImages/Main/226169_Main_Thumb_0746246.jpg",
       "image2": "https://www.prodirectsoccer.com/us/productimages/V3_1_Gallery_5/226169.jpg",
       "image3": "https://www.prodirectsoccer.com/us/productimages/V3_1_Gallery_2/226169.jpg"
@@ -136,6 +161,7 @@
       "price": 4550000,
       "discount": 0,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/ProductImages/Main/221567_Main_0730747.jpg",
       "image2": "https://www.prodirectrugby.com/productimages/V3_1_Gallery_5/221567_Gallery_5_0730756.jpg",
       "image3": "https://www.prodirectrugby.com/productimages/V3_1_Gallery_1/221567_Gallery_1_0730749.jpg"
@@ -148,6 +174,7 @@
       "price": 4550000,
       "discount": 35,
       "Stock": 25,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/us/productimages/V3_1_Main/226471.jpg",
       "image2": "https://www.prodirectsoccer.com/us/productimages/V3_1_Gallery_5/226471.jpg",
       "image3": "https://www.prodirectsoccer.com/us/productimages/V3_1_Gallery_3/226471.jpg"
@@ -160,6 +187,7 @@
       "price": 1475000,
       "discount": 45,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/ProductImages/Main/226501_Main_Thumb_0738624.jpg",
       "image2": "https://www.prodirectsoccer.com/nl/productimages/V3_1_Gallery_5/226501_Gallery_5_0738641.jpg",
       "image3": "https://www.prodirectsoccer.com/nl/productimages/V3_1_Gallery_5/226501_Gallery_5_0738641.jpg"
@@ -172,6 +200,7 @@
       "price": 1600000,
       "discount": 0,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.futbolemotion.com/imagesarticulos/145816/grandes/zapatilla-nike-mercurial-superfly-vii7-academy-ic-black-black-dark-smoke-grey-chile-red-0.jpg",
       "image2": "https://www.futbolemotion.com/imagesarticulos/145816/grandes/zapatilla-nike-mercurial-superfly-vii7-academy-ic-black-black-dark-smoke-grey-chile-red-1.jpg",
       "image3": "https://www.futbolemotion.com/imagesarticulos/145816/grandes/zapatilla-nike-mercurial-superfly-vii7-academy-ic-black-black-dark-smoke-grey-chile-red-2.jpg"
@@ -184,6 +213,7 @@
       "price": 1475000,
       "discount": 25,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/ProductImages/Gallery_5/226400_Gallery_5_0736006.jpg?impolicy=thumb&imwidth=512",
       "image2": "https://www.prodirectsoccer.com/ProductImages/Gallery_5/226400_Gallery_5_0736006.jpg?impolicy=thumb&imwidth=512",
       "image3": "https://www.prodirectsoccer.com/ProductImages/Gallery_3/226400_Gallery_3_0736002.jpg?impolicy=thumb&imwidth=512"
@@ -196,6 +226,7 @@
       "price": 1600000,
       "discount": 0,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/ProductImages/Main/223912_Main_0735685.jpg",
       "image2": "https://www.prodirectsoccer.com/de/productimages/V3_1_Gallery_1/223912_Gallery_1_0735686.jpg",
       "image3": "https://thumblr.uniid.it/product/207022/d2202e15c4bc.jpg"
@@ -208,6 +239,7 @@
       "price": 2250000,
       "discount": 10,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/ProductImages/Main/226364_Main_Thumb_0729243.jpg",
       "image2": "https://www.prodirectsoccer.com/ProductImages/Gallery_5/226364_Gallery_5_0729251.jpg",
       "image3": "https://www.prodirectsoccer.com/productimages/V3_1_Gallery_1/226364_Gallery_1_0729247.jpg"
@@ -220,6 +252,7 @@
       "price": 1250000,
       "discount": 10,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/ProductImages/Main/228865_Main_0758601.jpg",
       "image2": "https://www.prodirectsoccer.com/ProductImages/Main/228865_Main_0758601.jpg",
       "image3": "https://www.prodirectsoccer.com/ProductImages/Main/228865_Main_0758601.jpg"
@@ -232,6 +265,7 @@
       "price": 1550000,
       "discount": 0,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/ProductImages/Main/224395_Main_0747961.jpg?impolicy=thumb&imwidth=512",
       "image2": "https://www.prodirectsoccer.com/ProductImages/Main/224395_Main_0747961.jpg?impolicy=thumb&imwidth=512",
       "image3": "https://www.prodirectsoccer.com/ProductImages/Main/224395_Main_0747961.jpg?impolicy=thumb&imwidth=512"
@@ -244,6 +278,7 @@
       "price": 1150000,
       "discount": 10,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/ProductImages/Main/224366_Main_0762559.jpg",
       "image2": "https://www.prodirectsoccer.com/ProductImages/Main/224366_Main_0762559.jpg",
       "image3": "https://www.prodirectsoccer.com/ProductImages/Main/224366_Main_0762559.jpg"
@@ -256,6 +291,7 @@
       "price": 1550000,
       "discount": 0,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/ProductImages/Main/219453_Main_Thumb_0725756.jpg",
       "image2": "https://www.prodirectsoccer.com/ProductImages/Main/219453_Main_Thumb_0725756.jpg",
       "image3": "https://www.prodirectsoccer.com/ProductImages/Main/219453_Main_Thumb_0725756.jpg"
@@ -268,6 +304,7 @@
       "price": 2550000,
       "discount": 10,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/ProductImages/Main/227031_Main_Thumb_0756342.jpg",
       "image2": "https://www.prodirectsoccer.com/ProductImages/Main/227031_Main_Thumb_0756342.jpg",
       "image3": "https://www.prodirectsoccer.com/ProductImages/Main/227031_Main_Thumb_0756342.jpg"
@@ -280,6 +317,7 @@
       "price": 1100000,
       "discount": 45,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/ProductImages/Main/216104_Main_Thumb_0639260.jpg?impolicy=thumb&imwidth=512",
       "image2": "https://www.prodirectsoccer.com/ProductImages/Gallery_1/216104_Gallery_1_0639269.jpg?impolicy=thumb&imwidth=512",
       "image3": "https://www.prodirectsoccer.com/ProductImages/Gallery_3/216104_Gallery_3_0639281.jpg?impolicy=thumb&imwidth=512"
@@ -292,6 +330,7 @@
       "price": 2000000,
       "discount": 0,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/ProductImages/Main/221570_Main_0731299.jpg?impolicy=thumb&imwidth=512",
       "image2": "https://www.prodirectsoccer.com/ProductImages/Gallery_1/221570_Gallery_1_0731300.jpg?impolicy=thumb&imwidth=512",
       "image3": "https://www.prodirectsoccer.com/ProductImages/Gallery_3/221570_Gallery_3_0731303.jpg?impolicy=thumb&imwidth=512"
@@ -304,6 +343,7 @@
       "price": 900000,
       "discount": 10,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/ProductImages/Main/226826_Main_0741230.jpg?impolicy=thumb&imwidth=512",
       "image2": "https://www.prodirectsoccer.com/ProductImages/Gallery_1/226826_Gallery_1_0741231.jpg?impolicy=thumb&imwidth=512",
       "image3": "https://www.prodirectsoccer.com/ProductImages/Gallery_3/226826_Gallery_3_0741233.jpg?impolicy=thumb&imwidth=512"
@@ -316,6 +356,7 @@
       "price": 2500000,
       "discount": 0,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/ProductImages/Main/217720_Main_Thumb_0745688.jpg?impolicy=thumb&imwidth=512",
       "image2": "https://www.prodirectsoccer.com/ProductImages/Gallery_1/217720_Gallery_1_0745749.jpg?impolicy=thumb&imwidth=512",
       "image3": "https://www.prodirectsoccer.com/ProductImages/Gallery_3/217720_Gallery_3_0745768.jpg?impolicy=thumb&imwidth=512"
@@ -328,6 +369,7 @@
       "price": 3500000,
       "discount": 45,
       "Stock": 10,
+      "isDraft": true,
       "image1": "https://www.prodirectsoccer.com/ProductImages/Main/226904_Main_Thumb_0746064.jpg?impolicy=thumb&imwidth=512",
       "image2": "https://www.prodirectsoccer.com/ProductImages/Gallery_1/226904_Gallery_1_0746065.jpg?impolicy=thumb&imwidth=512",
       "image3": "https://www.prodirectsoccer.com/ProductImages/Gallery_3/226904_Gallery_3_0746067.jpg?impolicy=thumb&imwidth=512"

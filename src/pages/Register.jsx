@@ -47,6 +47,7 @@ class Register extends Component{
     sendDataToApi = (data) => {
         var dataToSend = data
         dataToSend.password = ''
+        dataToSend.role = 'user';
 
         // Axios.post(apiUrl + 'users' , dataToSend )
         var datatype = data.phone ? 'phone' : 'email'

@@ -1,107 +1,130 @@
-import React, { Component } from "react";
-import Axios from "axios";
-import ApiUrl from "./../supports/constants/apiUrl";
+import React, { Component } from 'react'
+import Axios from 'axios'
+import apiUrl from '../supports/constants/apiUrl'
 
-class statictic extends Component {
-  state = {
-    success: null,
-    pending: null,
-    activeUser: null,
-    pasifUser: null,
-    active: null,
-    draft: null,
-    success1: null,
-    pending1: null,
-    users: null,
-    product: null,
-  };
-  componentDidMount() {
-    this.getAllData();
-  }
+export class Statistics extends Component {
+    state = {
+        dataTrans : null,
+        dataProducts : null,
+        passiveUser : null
+    }
 
-  getAllData = () => {
-    Axios.get(ApiUrl + "transactions")
-      .then((res) => {
-        var countSucess = 0;
-        var pending = 0;
-        res.data.map((v) => (v.status === "paid" ? countSucess++ : pending++));
-        this.setState({ success: countSucess, pending: pending });
-        var unpaid = 0;
-        var paid = 0;
+    componentDidMount(){
+        this.getDataStats()
+        this.getDataProducts()
+        
+    }
 
-        res.data.map((v) => (v.status.includes("unpaid") ? unpaid++ : paid++));
-        res.data.forEach((v) =>
-          v.status.includes("unpaid")
-            ? (unpaid += v.totalPrice)
-            : (paid += v.totalPrice),
-        );
-        console.log(paid);
-        console.log(unpaid);
-        this.setState({ success1: paid, pending1: unpaid });
-      })
-      .catch((err) => console.log(err));
-    Axios.get(ApiUrl + "users")
-      .then((res) => {
-        var id = [];
-        res.data.map((v) => id.push(v.id));
-        var active = 0;
-        var pasif = 0;
-        id.forEach((v) => {
-          return Axios.get(ApiUrl + "transactions?id_user=" + v).then((res) => {
-            res.data.length > 0 ? active++ : pasif++;
-            this.setState({ activeUser: active, pasifUser: pasif });
-          });
-        });
-      })
-      .catch((err) => console.log(err));
-    Axios.get(ApiUrl + "products")
-      .then((res) => {
-        this.setState({ active: res.data.length });
-      })
-      .catch((err) => console.log(err));
-    Axios.get(ApiUrl + "drafts")
-      .then((res) => {
-        this.setState({ draft: res.data.length });
-      })
-      .catch((err) => console.log(err));
-  };
-  render() {
-    return (
-      <div className="container py-5" style={{ height: "120vh" }}>
-        <h1>Statistic Page</h1>
-        <div className="row">
-          <div className="col-3">
-            <h2>Transaction</h2>
-            <p className="font-weight-bold">success</p>
-            <div className="font-weight-bold">{this.state.success}</div>
-            <p className="font-weight-bold">pending</p>
-            <div className="font-weight-bold">{this.state.pending}</div>
-          </div>
-          <div className="col-3">
-            <h2>User</h2>
-            <p className="font-weight-bold">active user</p>
-            <div className="font-weight-bold">{this.state.activeUser}</div>
-            <p className="font-weight-bold">Pasif user</p>
-            <div className="font-weight-bold">{this.state.pasifUser}</div>
-          </div>
-          <div className="col-3">
-            <h2>Total product</h2>
-            <p className="font-weight-bold"> product</p>
-            <div className="font-weight-bold">{this.state.active}</div>
-            <p className="font-weight-bold">Draft</p>
-            <div className="font-weight-bold">{this.state.draft}</div>
-          </div>
-          <div className="col-3">
-            <h2>Total income</h2>
-            <p className="font-weight-bold">success</p>
-            <div className="font-weight-bold">Rp.{this.state.success1}</div>
-            <p className="font-weight-bold">pending</p>
-            <div className="font-weight-bold">Rp.{this.state.pending1}</div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+    getDataStats = () => {
+        Axios.get(apiUrl + "transactions")
+        .then((res) => {
+            var countSuccess = 0;
+            var countPending = 0;
+            var totalIncomeSuccess = 0;
+            var totalIncomePending =0;
+            var userActive = [];
+
+
+            res.data.forEach((val) => {
+                if(val.status === 'unpaid'){
+                    countPending ++
+                    totalIncomePending += val.totalPrice;
+                }else{
+                    countSuccess ++
+                    totalIncomeSuccess += val.totalPrice
+                }
+
+                if(!(userActive.includes(val.id_user))) userActive.push(val.id_user)
+                
+            })
+
+            var dataTrans = {countSuccess,countPending,totalIncomeSuccess,totalIncomePending,userActive}
+
+            this.setState({dataTrans})
+            this.getPassiveUser()
+         
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+
+    getDataProducts = () => {
+        Axios.get(apiUrl + 'products')
+        .then((res) => {
+            var countDraft = 0
+            res.data.forEach((val) => {
+                if(val.isDraft) countDraft ++
+            })
+
+            var countPublished = res.data.length - countDraft
+            var data = {countDraft,countPublished}
+            this.setState({dataProducts : data})
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+
+    getPassiveUser = () => {
+        Axios.get(apiUrl + 'users')
+        .then((res) => {
+            var pasiveUser = res.data.length - this.state.dataTrans.userActive.length
+            this.setState({passiveUser : pasiveUser})
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+
+    render() {
+        return (
+           <div>
+               <div className="container py-5">
+                   <h2>Statistics Page</h2>
+                   <div className="row mt-4">
+                        <div className="col-md-3">
+                            <div className="rounded border shadow p-4">
+                                <h4 className='text-center'>Transactions</h4>
+                                <p className='font-weight-bold'>Success</p>
+                                <p>{this.state.dataTrans && this.state.dataTrans.countSuccess} Transactions</p>
+                                <p className='font-weight-bold'>Pending</p>
+                                <p>{this.state.dataTrans && this.state.dataTrans.countPending} Transactions</p>
+                            </div>
+                        </div>
+                        <div className="col-md-3">
+                            <div className="rounded border shadow p-4">
+                                <h4 className='text-center'>Users</h4>
+                                <p className='font-weight-bold'>Active</p>
+                                <p>{this.state.dataTrans && this.state.dataTrans.userActive.length} Users</p>
+                                <p className='font-weight-bold'>Passive</p>
+                                <p>{this.state.passiveUser && this.state.passiveUser} Users</p>
+                            </div>
+                        </div>
+                        <div className="col-md-3">
+                            <div className="rounded border shadow p-4">
+                                <h4 className='text-center'>Total Products</h4>
+                                <p className='font-weight-bold'>Published</p>
+                                <p>{this.state.dataProducts && this.state.dataProducts.countPublished} Items</p>
+                                <p className='font-weight-bold'>Draft</p>
+                                <p>{this.state.dataProducts && this.state.dataProducts.countDraft} Items</p>
+                            </div>
+                        </div>
+                        <div className="col-md-3">
+                            <div className="rounded border shadow p-4">
+                                <h4 className='text-center'>Total Income</h4>
+                                <p className='font-weight-bold'>Success</p>
+                                <p>Rp. {this.state.dataTrans && this.state.dataTrans.totalIncomeSuccess.toLocaleString('id-ID')}</p>
+                                <p className='font-weight-bold'>Pending</p>
+                                <p>Rp. {this.state.dataTrans && this.state.dataTrans.totalIncomePending.toLocaleString('id-ID')}</p>
+                            </div>
+                        </div>
+                        
+                   </div>
+               </div>
+           </div>
+        )
+    }
 }
 
-export default statictic;
+export default Statistics

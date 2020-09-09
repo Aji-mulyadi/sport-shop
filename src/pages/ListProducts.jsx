@@ -79,29 +79,33 @@ export class ListProducts extends Component {
 
     renderDataToJsx = () => {
         return this.state.filteredData.map((val) => {
-            return(
-                <div className="col-6 mt-3 col-md-3 ">
-                    <div className='border bg-white p-3 h-100'>
-                        <Link to={'/detail-product/' + val.id} className='sporteens-link'>
-                            <img className='sporteens-clickable-el' src={val.image1} width='100%'  alt="product"/>
-                            <p  className='p-0 m-0 sporteens-main-dark font-weight-bold sporteens-clickable-el'>{val.name.slice(0,20) + '...' }</p>
-                        </Link>
-                        {
-                            val.discount ? 
-                            <span>
-                                <p className='p-0 m-0 text-danger'>{val.discount}% Off</p>
-                                <p className='p-0 m-0 text-secondary sporteens-font-14'> <s>Rp. {val.price.toLocaleString('id-ID')}</s> </p>
-                                <p className='p-0 m-0 sporteens-main-dark '> Rp. {(val.price * (1 - val.discount/100)).toLocaleString('id-ID')} </p>
-                            </span>
-                            :
-                            // <span className='d-flex border'>
-                                <p className='p-0 m-0 sporteens-main-dark '> Rp. {val.price.toLocaleString('id-ID')} </p>
-                            // </span>
-                        }
-                        
+            if(!val.isDraft){
+                return(
+                    <div className="col-6 mt-3 col-md-3 ">
+                        <div className='border bg-white p-3 h-100'>
+                            <Link to={'/detail-product/' + val.id} className='sporteens-link'>
+                                <img className='sporteens-clickable-el' src={val.image1} width='100%'  alt="product"/>
+                                <p  className='p-0 m-0 sporteens-main-dark font-weight-bold sporteens-clickable-el'>{val.name.slice(0,20) + '...' }</p>
+                            </Link>
+                            {
+                                val.discount ? 
+                                <span>
+                                    <p className='p-0 m-0 text-danger'>{val.discount}% Off</p>
+                                    <p className='p-0 m-0 text-secondary sporteens-font-14'> <s>Rp. {val.price.toLocaleString('id-ID')}</s> </p>
+                                    <p className='p-0 m-0 sporteens-main-dark '> Rp. {(val.price * (1 - val.discount/100)).toLocaleString('id-ID')} </p>
+                                </span>
+                                :
+                                // <span className='d-flex border'>
+                                    <p className='p-0 m-0 sporteens-main-dark '> Rp. {val.price.toLocaleString('id-ID')} </p>
+                                // </span>
+                            }
+                            
+                        </div>
                     </div>
-                </div>
-            )
+                )
+            }else{
+                return null
+            }
         })
     }
 
@@ -113,7 +117,6 @@ export class ListProducts extends Component {
         var category = this.refs.category.value // all
         var brand = this.refs.brand.value
         var filteredData = this.state.data
-
         if(!(category === 'all') || !(brand === 'all')){
             filteredData = this.state.data.filter((val) => {
                 if(category === 'all'){
@@ -174,24 +177,12 @@ export class ListProducts extends Component {
 
 
                 {/* Jumbotron Section */}
-                {/* <div>
-                    <div className="sporteens-jumbotron-list-products">
-                        <div className="row container align-items-center h-100">
-                            <div className="row align-items-center h-100">
-                                <div className="col-md-12 text-center text-md-left sporteens-light">
-                                    <h1 className="sporteens-light float-sm-left ml-5">Get Your Product Here</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
-
                 <div>
                     <div className="sporteens-jumbotron-list-products">
                         <div className="container h-100">
-                            <div className="row align-items-center h-100 ">
+                            <div className="row align-items-center h-100">
                                 <div className="col-md-12 text-center text-md-left sporteens-light">
-                                    <h1 className="sporteens-jumbotron-title-list-products text-center">Jump For Your Goal</h1>
+                                    <h1 className="sporteens-jumbotron-title-list-products text-center mt-5">Jump For Your Goal</h1>
                                 </div>
                             </div>
                         </div>
