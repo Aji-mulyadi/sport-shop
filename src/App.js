@@ -63,7 +63,7 @@ import manageProduct from './pages/ManageProduct'
         <Route path='/brands' component={Brands} />
           {this.state.userRole === 'admin' ? <Route path='/statistic' component={Statistic} /> : null}
           {this.state.userRole === 'admin' ? <Route path='/products' component={ListProducts} /> : null}
-          {this.state.userRole === 'admin' ? <Route path='/ManageProduct' component={manageProduct} /> : null}
+          {this.state.userRole === 'admin' ? <Route path='/manageProduct' component={manageProduct} /> : null}
 
         <Route path='/Cart' component={Cart} />
         <Route path='/register' component={Register} />

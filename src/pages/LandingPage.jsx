@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './../supports/css/LandingPage.css'
-import Image from './../supports/images/product-2.jpg'
 import Logo1 from './../supports/images/logo-1.jpg'
 import Logo2 from './../supports/images/logo-2.jpg'
 import Axios from 'axios'
@@ -15,13 +14,11 @@ import { Link } from 'react-router-dom'
 export class LandingPage extends Component {
     state = {
         data : null,
-        
-        
+        bestsellerData : null
     }
 
     componentDidMount(){
         this.getAllProducts()
-        this.getBestSellerProducts()
     }
 
     getAllProducts = () => {
@@ -29,6 +26,7 @@ export class LandingPage extends Component {
         .then((res) => {
             console.log(res.data)
             this.setState({data : res.data})
+            this.getBestSellerProducts()
         })
         .catch((err) => {
             alert(err.message)
@@ -64,7 +62,16 @@ export class LandingPage extends Component {
             sold.sort((a,b) => {
                 return b.qty - a.qty
             })
+            sold = sold.slice(0,4)
+            sold.forEach((val,index) => {
+                 this.state.data.forEach((data) => {
+                     if(val.product_name === data.name){
+                         sold[index]['product_id'] = data.id
+                     }
+                 })
+            })
             console.log(sold)
+         this.setState({bestsellerData : sold})
         })
         .catch((err) => {
             console.log(err)
@@ -141,44 +148,30 @@ export class LandingPage extends Component {
                         <p>Get our Bestseller Products This Month</p>
 
                         <div className="row mt-4">
-                            <div className="col-6 mt-3 mt-md-0 col-md-3 ">
-                                <div className='border bg-white p-3'>
-                                    <img src={Image} width='100%'  alt="product"/>
-                                    <p className='p-0 m-0 sporteens-main-dark font-weight-bold'>Product Name</p>
-                                    <p className='p-0 m-0 text-danger'>30% Off</p>
-                                    <p className='p-0 m-0 text-secondary'> <s>Rp. 100000</s> </p>
-                                    <p className='p-0 m-0 sporteens-main-dark'> Rp. 70000 </p>
-                                </div>
-                            </div>
+
+                        {
+                                this.state.bestsellerData &&
+                                this.state.bestsellerData.map((val) => {
+                                    return(
+                                        <div className="col-6 mt-3 mt-md-0 col-md-3 ">
+                                            <div className='border bg-white p-3'>
+                                            <Link to={'/detail-product/' + val.product_id} className='sporteens-link'>
+                                                <img src={val.product_image} width='100%'  alt="product"/>
+                                            </Link> 
+                                                <p className='p-0 m-0 sporteens-main-dark font-weight-bold'>{val.product_name.slice(0,20) + '...'}</p>
+                                                {/* <p className='p-0 m-0 text-secondary'> <s>Rp. 100000</s> </p> */}
+                                                <p className='p-0 m-0 sporteens-main-dark'> Rp. {val.product_price.toLocaleString('id-ID')} </p>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+                            
 
                             
-                            <div className="col-6 mt-3 mt-md-0 col-md-3 ">
-                                <div className='border bg-white p-3'>
-                                    <img src={Image} width='100%'  alt="product"/>
-                                    <p className='p-0 m-0 sporteens-main-dark font-weight-bold'>Product Name</p>
-                                    <p className='p-0 m-0 text-danger'>30% Off</p>
-                                    <p className='p-0 m-0 text-secondary'> <s>Rp. 100000</s> </p>
-                                    <p className='p-0 m-0 sporteens-main-dark'> Rp. 70000 </p>
-                                </div>
-                            </div>
-                            <div className="col-6 mt-3 mt-md-0 col-md-3 ">
-                                <div className='border bg-white p-3'>
-                                    <img src={Image} width='100%'  alt="product"/>
-                                    <p className='p-0 m-0 sporteens-main-dark font-weight-bold'>Product Name</p>
-                                    <p className='p-0 m-0 text-danger'>30% Off</p>
-                                    <p className='p-0 m-0 text-secondary'> <s>Rp. 100000</s> </p>
-                                    <p className='p-0 m-0 sporteens-main-dark'> Rp. 70000 </p>
-                                </div>
-                            </div>
-                            <div className="col-6 mt-3 mt-md-0 col-md-3 ">
-                                <div className='border bg-white p-3'>
-                                    <img src={Image} width='100%'  alt="product"/>
-                                    <p className='p-0 m-0 sporteens-main-dark font-weight-bold'>Product Name</p>
-                                    <p className='p-0 m-0 text-danger'>30% Off</p>
-                                    <p className='p-0 m-0 text-secondary'> <s>Rp. 100000</s> </p>
-                                    <p className='p-0 m-0 sporteens-main-dark'> Rp. 70000 </p>
-                                </div>
-                            </div>
+                            
+                            
+                            
 
                         </div>
 
